@@ -25,9 +25,9 @@ It can take an hour. (only need to run it once for all the tests)
 ssd-act$ docker run -it --rm --privileged --device /dev/nvme0n1 fasthall/aerospike-act ./actprep /dev/nvme0n1
 ```
 
-**Run the test**
+**Run the test in background**
 ```
-ssd-act$ docker run --name act --device /dev/nvme0n1 fasthall/aerospike-act sh -c "./act actconfig_6x_1d.txt > output.txt"
+ssd-act$ docker run -d --name act --device /dev/nvme0n1 fasthall/aerospike-act sh -c "./act actconfig_6x_1d.txt > output.txt"
 ```
 
 **Monitor the progress**
