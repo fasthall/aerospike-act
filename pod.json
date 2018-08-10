@@ -1,0 +1,42 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "aerospike-act"
+  },
+  "spec": {
+    "volumes": [
+      {
+        "name": "local-ssd",
+        "hostPath": {
+          "path": "/dev/sdb",
+          "type": "BlockDevice"
+        }
+      }
+    ],
+    "containers": [
+      {
+        "name": "aerospike-act",
+        "image": "fasthall/aerospike-act",
+        "command": [
+          "sh",
+          "run.sh",
+          "/dev/sdb",
+          "config_1x_1h.txt"
+        ],
+        "volumeMounts": [
+          {
+            "name": "local-ssd",
+            "mountPath": "/dev/sdb"
+          }
+        ],
+        "ports": [
+          {
+            "containerPort": 80
+          }
+        ]
+      }
+    ],
+    "restartPolicy": "Never"
+  }
+}

@@ -3,7 +3,7 @@ act config file for testing 1 device(s) at 6x load
 ##########
 
 # comma-separated list:
-device-names: /dev/nvme0n1
+device-names: DEVICE
 
 # mandatory non-zero:
 num-queues: 8

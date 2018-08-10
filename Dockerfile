@@ -10,8 +10,7 @@ WORKDIR /act
 RUN make
 RUN make -f Makesalt
 
-COPY actconfig_1x_1d.txt ./
-COPY actconfig_3x_1d.txt ./
-COPY actconfig_6x_1d.txt ./
+COPY *.txt ./
+COPY run.sh ./
 
-CMD ["printf", "Usage:\n docker run --name act --device /dev/nvme0n1 fasthall/aerospike-act ./act actconfig_6x_1d.txt > output.txt\n"]
+CMD ["printf", "Usage:\n docker run --name act --device DEVICE fasthall/aerospike-act sh run.sh DEVICE CONFIG\n"]
