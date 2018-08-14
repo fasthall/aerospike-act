@@ -21,18 +21,13 @@
         "command": [
           "sh",
           "run.sh",
-          "/dev/sdb",
-          "config_1x_1h.txt"
+	  "/dev/sdb",
+	  "config_1x_5m.txt"
         ],
         "volumeMounts": [
           {
             "name": "local-ssd",
             "mountPath": "/dev/sdb"
-          }
-        ],
-        "ports": [
-          {
-            "containerPort": 80
           }
         ]
       }
